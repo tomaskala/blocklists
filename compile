@@ -12,7 +12,7 @@ else
   touch ./blocklist.txt
 fi
 
-for partial in ./*.txt; do
+for partial in ./src/*.txt; do
   if [ "$(basename "${partial}")" = verbatim.txt ]; then
     cat "${partial}" >> ./blocklist.txt
   else
