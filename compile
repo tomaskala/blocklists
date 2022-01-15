@@ -8,12 +8,6 @@ google_end='"])'
 ddg_start='duckduckgo.*##.results > div:has(a[href*="'
 ddg_end='"])'
 
-if [ -f ./blocklist.txt ]; then
-  truncate -s 0 ./blocklist.txt
-else
-  touch ./blocklist.txt
-fi
-
 {
   printf '[Adblock]\n'
   printf '! Title: Spammy Sites Blocklist\n'
@@ -24,7 +18,7 @@ fi
   printf '! Description: This filter removes spammy websites from search results\n'
   printf '!---------------------------------------------------------------------\n'
   printf '\n'
-} >> ./blocklist.txt
+} > ./blocklist.txt
 
 for partial in ./src/*.txt; do
   if [ "$(basename "${partial}")" = verbatim.txt ]; then
