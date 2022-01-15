@@ -1,0 +1,35 @@
+#!/bin/sh
+
+google_start='google.*##.g:has(a[href*="'
+google_end='"])'
+
+ddg_start='duckduckgo.*##.results > div:has(a[href*="'
+ddg_end='"])'
+
+if [ -f ./blocklist.txt ]; then
+  truncate -s 0 ./blocklist.txt
+else
+  touch ./blocklist.txt
+fi
+
+for partial in ./*.txt; do
+  if [ "$(basename "${partial}")" = verbatim.txt ]; then
+    cat "${partial}" >> ./blocklist.txt
+  else
+    awk \
+      -v google_start="${google_start}" \
+      -v google_end="${google_end}" \
+      -v ddg_start="${ddg_start}" \
+      -v ddg_end="${ddg_end}" \
+      '
+      {
+        print $0
+        sub(/^\*:\/\//, "")  # Remove the leading *://
+        sub(/^\*\./, "")  # Remove the leading *.
+        sub(/\/\*$/, "")  # Remove the trailing /*
+        print google_start $0 google_end
+        print ddg_start $0 ddg_end
+      }
+      ' "${partial}" >> ./blocklist.txt
+  fi
+done
