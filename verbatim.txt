@@ -1,0 +1,3 @@
+||google.com##div:has-text(Before you continue to Google Search)
+||google.com##:root:style(overflow: auto !important;)
+###hot-network-questions
