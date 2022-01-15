@@ -1,12 +1,15 @@
-# blocklist
+# blocklists
 
-An Adblock Plus-compatible blocklist of the various spammy websites containing
-scraped results from github, stack-overflow and similar websites. Blocks the websites from appearing inside Google and DuckDuckGo search
-results.
+Adblock Plus-compatible blocklists of various spammy websites plaguing search
+results. These typically contain scraped or machine-translated pages from
+github or stack-overflow.
+
+After applying the blocklist, these pages will be removed from DuckDuckGo and
+Google search results.
 
 
 ## Usage
 
-Assuming uBlock Origin is used, paste the link to the raw version of
-[blocklist.txt](blocklist.txt) into the `Custom` field in the `Filter
-lists` tab.
+In uBlock Origin, paste the link to the raw version of
+[blocklist.txt](blocklist.txt) into the `Custom` field in the `Filter lists`
+tab.
