@@ -1,5 +1,7 @@
 #!/bin/sh
 
+current_date="$(date +'%d %B %Y')"
+
 google_start='google.*##.g:has(a[href*="'
 google_end='"])'
 
@@ -12,15 +14,17 @@ else
   touch ./blocklist.txt
 fi
 
-printf '[Adblock]\n' >> ./blocklist.txt
-printf '! Title: Spammy Sites Blocklist\n' >> ./blocklist.txt
-printf '! Expires: 7 days (update frequency)\n' >> ./blocklist.txt
-printf '! Version: 1\n' >> ./blocklist.txt
-printf '! Last modified: %s\n' "$(date +'%d %B %Y')" >> ./blocklist.txt
-printf '! Homepage: https://github.com/tomaskala/blocklists\n' >> ./blocklist.txt
-printf '! Description: This filter removes spammy websites from search results\n' >> ./blocklist.txt
-printf '!---------------------------------------------------------------------\n' >> ./blocklist.txt
-printf '\n' >> ./blocklist.txt
+{
+  printf '[Adblock]\n'
+  printf '! Title: Spammy Sites Blocklist\n'
+  printf '! Expires: 7 days (update frequency)\n'
+  printf '! Version: 1\n'
+  printf '! Last modified: %s\n' "${current_date}"
+  printf '! Homepage: https://github.com/tomaskala/blocklists\n'
+  printf '! Description: This filter removes spammy websites from search results\n'
+  printf '!---------------------------------------------------------------------\n'
+  printf '\n'
+} >> ./blocklist.txt
 
 for partial in ./src/*.txt; do
   if [ "$(basename "${partial}")" = verbatim.txt ]; then
