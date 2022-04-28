@@ -36,6 +36,7 @@
 *://intellipaat.com/*
 *://isolution.pro/*
 *://issues-world.com/*
+*://itecnote.com/*
 *://itectec.com/*
 *://*.it-swarm-fr.com/* 
 *://jpndev.com/*
