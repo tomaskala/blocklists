@@ -18,3 +18,4 @@
 *://pythonrepo.com/*
 *://reposhub.com/*
 *://*.wenyanet.com/*
+*://*.github-wiki-see.page/*
